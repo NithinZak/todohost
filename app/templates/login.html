@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #566FD7;
+        }
+        .wrapper{
+            margin: 0px auto;
+            display: flex;
+            width: 460px;
+            height: 550px;
+            background-color:  #F3F3F3;
+            margin-top: 50px;
+            align-items: center;
+            overflow: hidden;
+            gap: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgb(115, 211, 240);
+        }
+        #right_img{
+            height:550px;
+            object-fit: cover;
+            margin-top: 4px;
+        }
+        .left{
+            /* background-color: aliceblue; */
+            height: 300px;
+            width: 400px;
+            padding: 1em;
+        }
+        .left label{
+            font-family: 'Poppins';
+            font-size: 20px;
+            
+        }
+        .left p{
+            padding: 0%;
+            
+            
+        }
+        #id_username{
+            width: 400px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid;
+            background-color: #F3F3F3;
+        }
+        #id_password{
+            width: 400px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid;
+            background-color: #F3F3F3;
+        }
+        .name{
+            margin-bottom: 2em;
+            margin-top: 1em;
+        }
+        .password{
+            margin-bottom: 3em;
+        }
+        #submit{
+            /* background-color: rgb(163, 212, 255); */
+            height: 40px;
+            border: 1px solid;
+            border-radius: 20px;
+            width: 150px;
+            background-color:  #F3F3F3;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+        }
+        #submit:hover{
+            background-color:  #566FD7;
+            color: azure;  
+        }
+        #register{
+            /* background-color: rgb(163, 212, 255); */
+            height: 40px;
+            border: 1px solid;
+            border-radius: 20px;
+            width: 150px;
+            margin-top:20px;
+            background-color: #F3F3F3;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+        }
+        #register:hover{
+            background-color:  #566FD7; 
+            color: azure;
+        }
+        .sub_reg{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="right">
+            <img src="{%static 'images\sofa-13.jpg'%}" alt="" id="right_img">
+        </div>
+        <div class="h1_texts">
+            <h1 style="font-family: 'Poppins'; margin: 0%; padding: 0; margin-left: 15px;">Signup</h1>
+            <div class="left">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="name">
+                        <label for="{{ form.username.id_for_label }}">Username</label>
+                        <p>{{ form.username }}</p>
+                    </div>
+                    <div class="password">
+                        <label for="{{ form.password.id_for_label }}">Password</label>
+                        <p>{{ form.password }}</p>
+                    </div>
+                    <div class="sub_reg">
+                        <button type="submit" id="submit">Submit</button>
+                        
+                    </div>
+                    
+                </form>
+                <a href="{% url 'userregister'%}"><button id="register">Register</button></a>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+</body>
+</html>

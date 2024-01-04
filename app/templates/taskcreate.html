@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            border: 0%;
+        }
+        body{
+            background-color: #566FD7;
+           
+            
+        }
+        .main_wrapper{
+            max-width: 450px;
+            height: fit-content;
+            margin: 10% auto;
+            /* background-color: #777777; */
+        }
+        .wrapper{
+            background-color: #F3F3F3;
+            max-width: 400px;
+            margin: 10% auto;
+            height: 500px;
+            padding: 2em;
+            border-radius: 10px;
+            overflow:auto;
+        }
+        header{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        header h1{
+            font-family: 'Poppins';
+            color: #545454;
+        }
+          
+        .main{
+            margin: 0px auto;
+            width:98%;
+            margin-top: 20px;
+            display: flex;
+            /* background-color: antiquewhite; */
+            align-items: center;
+            margin-bottom: 10px;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            position: relative;
+        }
+  
+        
+     
+        .logout_btn{
+            
+            height: 40px;
+            width: 70px;
+            font-family: 'Poppins';
+            border: 0;
+            border-radius: 5px;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            cursor: pointer;
+            background-color: #F3F3F3;
+            color: #545454;
+            margin-top: -100px;
+        }
+        .logout_btn:hover{
+            box-shadow: 0px 0px 3px rgb(80, 80, 80); 
+             
+        }
+        a{
+            text-decoration: none;
+            margin: 0%;
+            padding: 0%;
+        }
+        #completed_btn{
+            margin-right: 20px;
+        }
+        .main h2{
+            font-size: larger;
+            font-family: 'Poppins';
+            color:#545454;
+        }
+        
+        p{
+           /* background-color: aquamarine; */
+            width: 100px;
+            
+        }
+        label{
+            font-family: 'Poppins';
+            color:#545454;
+            font-weight: 700;
+            
+        }
+        #sub{
+            height: 40px;
+            width: 100px;
+            font-family: 'Poppins';
+            border: 0;
+            border-radius: 5px;
+            background-color: #566FD7;
+            color: #F3F3F3; 
+            transition-duration: 0.2s;
+
+        }
+        #sub:hover{           
+            background-color: #5e7bec; 
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+        #id_task{
+            width:375px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            background-color:#F3F3F3 ;
+            margin-top: 10px;
+        }
+        #id_description{
+            width:375px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            background-color:#F3F3F3 ;
+            margin-top: 10px;
+        }
+        #id_completed{
+            width: 20px;
+            height: 20px;
+        }
+        #com_div{
+            display: flex;
+            align-items: center;
+            gap:20px
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+    
+    
+    
+
+
+
+    <div class="main_wrapper">
+        <div class="wrapper">
+            <header>
+                <h1>Lets Do It</h1>  
+            </header>
+            <hr id="headhr">
+           <div class="main">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="{{ form.task.id_for_label }}">Task:</label>
+                    
+                        <p>{{ form.task }}</p>  
+                        {{ form.task.errors }}
+                    
+                </div>
+                <div>
+                    <label for="{{ form.description.id_for_label }}">description:</label>
+                    <div class="input">
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+                </div>
+                <div id="com_div">
+                    <label for="{{ form.completed.id_for_label }}">Completed:</label>
+                    {{ form.completed }}
+                    {{ form.completed.errors }}
+                </div>
+                <button type="submit" id="sub">Submit</button>
+            </form>  
+           </div> 
+        </div>
+        <a href="{% url 'logout'%}"><button class="logout_btn">Logout</button></a>
+        <a href="{% url 'tasks'%}"><button class="logout_btn">Home</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100&display=swap" rel="stylesheet">
+    <title>TODO</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            border: 0%;
+        }
+        body{
+            background-color: #566FD7;
+           
+            
+        }
+        .main_wrapper{
+            max-width: 450px;
+            height: fit-content;
+            margin: 10% auto;
+            /* background-color: #777777; */
+        }
+        .wrapper{
+            background-color: #F3F3F3;
+            max-width: 400px;
+            margin: 10% auto;
+            height: 500px;
+            padding: 2em;
+            border-radius: 10px;
+            overflow:auto;
+        }
+        header{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        header h1{
+            font-family: 'Poppins';
+            color: #545454;
+        }
+          
+        .main{
+            margin: 0px auto;
+            width:98%;
+            margin-top: 20px;
+            display: flex;
+            /* background-color: antiquewhite; */
+            align-items: center;
+            margin-bottom: 10px;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            position: relative;
+        }
+  
+        .svgs{
+            display: flex;
+            gap: 30px;
+            
+        }
+     
+        .logout_btn{
+            
+            height: 40px;
+            width: 70px;
+            font-family: 'Poppins';
+            border: 0;
+            border-radius: 5px;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            cursor: pointer;
+            background-color: #F3F3F3;
+            color: #545454;
+            margin-top: -100px;
+        }
+        .logout_btn:hover{
+            box-shadow: 0px 0px 3px rgb(80, 80, 80); 
+             
+        }
+        a{
+            text-decoration: none;
+            margin: 0%;
+            padding: 0%;
+        }
+        #completed_btn{
+            margin-right: 20px;
+        }
+        .main h2{
+            font-size: larger;
+            font-family: 'Poppins';
+            color:#545454;
+        }
+        .main h5{
+            
+            font-family: 'Poppins';
+            color:#545454;
+            font-weight: 700;
+        }
+        .description{
+            
+            margin: 0 auto;
+            background-color:aliceblue;
+            width: 78%;
+            overflow:hidden; 
+            text-overflow:clip;
+            white-space: nowrap;
+            height: 60%;
+            
+        }
+        #desc{
+            
+            text-overflow: ellipsis;
+            font-size: medium;
+            font-family: 'Poppins';
+            color:#545454;
+            font-weight: 400;
+            /* background-color: #566FD7; */
+        }
+        ul{
+            width:300px;
+            /* background-color: antiquewhite; */
+            text-overflow: ellipsis;
+            overflow:auto;
+            white-space: nowrap;
+            margin: 0 auto;
+            height: 300px;
+        }
+        li{
+            width: 100px;
+            text-overflow: ellipsis;
+            list-style: none;
+        }
+        
+    </style>
+</head>
+<body> 
+    
+        <div class="main_wrapper">
+            <div class="wrapper">
+                <header>
+                    <h1>Task</h1>
+                    <div class="svgs">
+                        <a href="{% url 'updatetask' tasks.id%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" fill="none">
+                                <path d="M20 5.24002C20.0008 5.10841 19.9756 4.97795 19.9258 4.85611C19.876 4.73427 19.8027 4.62346 19.71 4.53002L15.47 0.290017C15.3766 0.197335 15.2658 0.12401 15.1439 0.0742455C15.0221 0.0244809 14.8916 -0.000744179 14.76 1.67143e-05C14.6284 -0.000744179 14.4979 0.0244809 14.3761 0.0742455C14.2543 0.12401 14.1435 0.197335 14.05 0.290017L11.22 3.12002L0.290017 14.05C0.197335 14.1435 0.12401 14.2543 0.0742455 14.3761C0.0244809 14.4979 -0.000744179 14.6284 1.67143e-05 14.76V19C1.67143e-05 19.2652 0.105374 19.5196 0.29291 19.7071C0.480446 19.8947 0.7348 20 1.00002 20H5.24002C5.37994 20.0076 5.51991 19.9857 5.65084 19.9358C5.78176 19.8858 5.90073 19.8089 6.00002 19.71L16.87 8.78002L19.71 6.00002C19.8013 5.9031 19.8757 5.79155 19.93 5.67002C19.9397 5.59031 19.9397 5.50973 19.93 5.43002C19.9347 5.38347 19.9347 5.33657 19.93 5.29002L20 5.24002ZM4.83002 18H2.00002V15.17L11.93 5.24002L14.76 8.07002L4.83002 18ZM16.17 6.66002L13.34 3.83002L14.76 2.42002L17.58 5.24002L16.17 6.66002Z" fill="#545454"/>
+                            </svg>  
+                        </a>
+                        <a href="{% url 'delete' tasks.id %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 18 20" fill="none">
+                                <path d="M17 4H13V3C13 2.20435 12.6839 1.44129 12.1213 0.87868C11.5587 0.316071 10.7956 0 10 0H8C7.20435 0 6.44129 0.316071 5.87868 0.87868C5.31607 1.44129 5 2.20435 5 3V4H1C0.734784 4 0.48043 4.10536 0.292893 4.29289C0.105357 4.48043 0 4.73478 0 5C0 5.26522 0.105357 5.51957 0.292893 5.70711C0.48043 5.89464 0.734784 6 1 6H2V17C2 17.7956 2.31607 18.5587 2.87868 19.1213C3.44129 19.6839 4.20435 20 5 20H13C13.7956 20 14.5587 19.6839 15.1213 19.1213C15.6839 18.5587 16 17.7956 16 17V6H17C17.2652 6 17.5196 5.89464 17.7071 5.70711C17.8946 5.51957 18 5.26522 18 5C18 4.73478 17.8946 4.48043 17.7071 4.29289C17.5196 4.10536 17.2652 4 17 4ZM7 3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H10C10.2652 2 10.5196 2.10536 10.7071 2.29289C10.8946 2.48043 11 2.73478 11 3V4H7V3ZM14 17C14 17.2652 13.8946 17.5196 13.7071 17.7071C13.5196 17.8946 13.2652 18 13 18H5C4.73478 18 4.48043 17.8946 4.29289 17.7071C4.10536 17.5196 4 17.2652 4 17V6H14V17Z" fill="#545454"/>
+                            </svg>
+                        </a>
+                    </div>
+                </header>
+                <hr id="headhr">
+               <div class="main">
+                    {% if tasks.completed %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none" id="completed_btn">
+                        <circle cx="10.5" cy="10.5" r="10.5" fill="#56D782"/>
+                        <path d="M15.748 7.23151C15.6753 7.15815 15.5887 7.09993 15.4933 7.06019C15.3979 7.02046 15.2956 7 15.1923 7C15.089 7 14.9867 7.02046 14.8913 7.06019C14.7959 7.09993 14.7093 7.15815 14.6366 7.23151L8.80544 13.0701L6.35558 10.6126C6.28003 10.5396 6.19085 10.4822 6.09313 10.4437C5.9954 10.4052 5.89105 10.3863 5.78603 10.3881C5.681 10.39 5.57736 10.4124 5.48103 10.4543C5.3847 10.4962 5.29755 10.5566 5.22458 10.6322C5.1516 10.7077 5.09421 10.7969 5.0557 10.8946C5.01719 10.9923 4.9983 11.0967 5.00012 11.2017C5.00194 11.3067 5.02442 11.4103 5.06629 11.5067C5.10816 11.603 5.16859 11.6901 5.24414 11.7631L8.24972 14.7685C8.32249 14.8418 8.40905 14.9001 8.50443 14.9398C8.59981 14.9795 8.70212 15 8.80544 15C8.90877 15 9.01107 14.9795 9.10645 14.9398C9.20183 14.9001 9.2884 14.8418 9.36116 14.7685L15.748 8.38201C15.8275 8.30872 15.8909 8.21977 15.9342 8.12077C15.9776 8.02176 16 7.91485 16 7.80676C16 7.69867 15.9776 7.59176 15.9342 7.49275C15.8909 7.39375 15.8275 7.3048 15.748 7.23151V7.23151Z" fill="black"/>
+                    </svg>
+                    {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none" id="completed_btn">
+                        <circle cx="10.5" cy="10.5" r="10.5" fill="#D9D9D9"/>
+                    </svg>
+                    {% endif %}
+                    <div class="texts">
+                        <h2>{{ tasks.task }}</h2>
+                        <h5>{{ tasks.created}}</h5>
+                    </div>
+                    
+               </div> 
+                
+                    <ul>
+                        <li><h3 id="desc">{{ tasks.description }}</h3></li>
+                    </ul>
+                    
+                       
+     
+            </div>
+            <a href="{% url 'logout'%}"><button class="logout_btn">Logout</button></a>
+            <a href="{% url 'tasks'%}"><button class="logout_btn">Home</button></a>
+        </div>
+ 
+</body>
+</html>

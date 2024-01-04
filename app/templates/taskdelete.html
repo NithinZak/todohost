@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100&display=swap" rel="stylesheet">
+    <title>TODO</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            border: 0%;
+        }
+        body{
+            background-color: #566FD7;
+           
+            
+        }
+        .main_wrapper{
+            max-width: 450px;
+            height: fit-content;
+            margin: 10% auto;
+            /* background-color: #777777; */
+        }
+        .wrapper{
+            background-color: #F3F3F3;
+            max-width: 400px;
+            margin: 10% auto;
+            height: 200px;
+            padding: 2em;
+            border-radius: 10px;
+            overflow:auto;
+        }
+        header{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        header h1{
+            font-family: 'Poppins';
+            color: #545454;
+        }
+          
+        .main{
+            margin: 0px auto;
+            width:98%;
+            height: 100px;
+            margin-top: 20px;
+            display: flex;
+            /* background-color: antiquewhite; */
+            align-items: center;
+            margin-bottom: 10px;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            position: relative;
+            justify-content: center;
+        }
+  
+        .svgs{
+            display: flex;
+            gap: 30px;
+            
+        }
+     
+        .logout_btn{
+            
+            height: 40px;
+            width: 70px;
+            font-family: 'Poppins';
+            border: 0;
+            border-radius: 5px;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            cursor: pointer;
+            background-color: #F3F3F3;
+            color: #545454;
+            margin-top: -100px;
+        }
+        .logout_btn:hover{
+            box-shadow: 0px 0px 3px rgb(80, 80, 80); 
+             
+        }
+        a{
+            text-decoration: none;
+            margin: 0%;
+            padding: 0%;
+        }
+        
+        #delete{
+            height: 40px;
+            width: 200px;
+            font-family: 'Poppins';
+            border: 0;
+            border-radius: 5px;
+            background-color: #566FD7;
+            color: #F3F3F3; 
+            transition-duration: 0.2s;
+        }
+        #delete:hover{
+            background-color: #5e7bec; 
+        }
+        
+        
+        
+        
+    </style>
+</head>
+<body> 
+    
+        <div class="main_wrapper">
+            <div class="wrapper">
+                <header>
+                    <h1>Task</h1> 
+                </header>
+                <hr id="headhr">
+               <div class="main">
+                   <form action="" method="post">
+                        {% csrf_token %}
+                        <button id="delete">Delete</button>
+                   </form> 
+                    
+               </div> 
+            </div>
+            <a href="{% url 'logout'%}"><button class="logout_btn">Logout</button></a>
+            <a href="{% url 'tasks'%}"><button class="logout_btn">Home</button></a>
+        </div>
+ 
+</body>
+</html>
